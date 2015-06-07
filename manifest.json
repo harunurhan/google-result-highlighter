@@ -1,0 +1,16 @@
+{
+  "name": "Google Result Highlighter",
+  "description": "Highlight google results from trusted websites.",
+  "version": "0.1",
+  "permissions": [
+    "*://www.google.com.tr/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.google.com.tr/*"],
+      "js": ["highlight.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2
+}
