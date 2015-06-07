@@ -3,7 +3,8 @@
   "description": "Highlight google results from trusted websites.",
   "version": "0.1",
   "permissions": [
-    "*://www.google.com.tr/*"
+    "*://www.google.com.tr/*", // TODO: add all countries
+    "storage"
   ],
   "content_scripts": [
     {
@@ -12,5 +13,6 @@
       "run_at": "document_end"
     }
   ],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "options_page": "config.html"
 }
