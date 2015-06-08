@@ -4,7 +4,7 @@ This is a chrome extension to highlight google search results from trusted sourc
 
 ## Install and Configuration
 
-Not yet released on Chrome Web Store. But can be installed as unpacked extension.
+Not yet released on Chrome Web Store. But if you want, you can install as unpacked extension. However I don't recommend because still in development and has some bugs which I will fix after my finals.
 
 1. Download zip or clone in desktop
 2. Open `chrome://extensions/` on browser
