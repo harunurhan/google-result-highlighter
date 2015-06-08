@@ -1,14 +1,14 @@
 {
   "name": "Google Result Highlighter",
   "description": "Highlight google results from trusted websites.",
-  "version": "0.1",
+  "version": "0.2",
   "permissions": [
     "*://www.google.com.tr/*", // TODO: add all countries
     "storage"
   ],
   "content_scripts": [
     {
-      "matches": ["*://www.google.com.tr/*"],
+      "matches": ["*://www.google.com.tr/*"], // TODO: add all countries
       "js": ["highlight.js"],
       "run_at": "document_end"
     }
