@@ -1,14 +1,36 @@
 {
   "name": "Google Result Highlighter",
-  "description": "Highlight google results from trusted websites.",
+  "description": "Highlight google search results from trusted websites.",
   "version": "0.2",
   "permissions": [
-    "*://www.google.com.tr/*", // TODO: add all countries
+    "*://www.google.co.uk/*",
+    "*://www.google.com.tr/*",
+    "*://www.google.com/*",
+    "*://www.google.co.in/*",
+    "*://www.google.com.my/*",
+    "*://www.google.co.id/*",
+    "*://www.google.ca/*",
+    "*://www.google.com.br/*",
+    "*://www.google.fr/*",
+    "*://www.google.de/*",
+    "*://www.google.es/*",
+     // TODO: add all countries
     "storage"
   ],
   "content_scripts": [
     {
-      "matches": ["*://www.google.com.tr/*"], // TODO: add all countries
+      "matches": ["*://www.google.co.uk/*",
+                  "*://www.google.com.tr/*",
+                  "*://www.google.com/*",
+                  "*://www.google.co.in/*",
+                  "*://www.google.com.my/*",
+                  "*://www.google.co.id/*",
+                  "*://www.google.ca/*",
+                  "*://www.google.com.br/*",
+                  "*://www.google.fr/*",
+                  "*://www.google.de/*",
+                  "*://www.google.es/*"],
+                  // TODO: add all countries
       "js": ["highlight.js"],
       "run_at": "document_end"
     }
