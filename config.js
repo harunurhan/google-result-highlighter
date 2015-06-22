@@ -15,6 +15,16 @@ function savePageToStroge (pageName, color, callback) {
   }, callback);
 }
 
+/*
+This is used to save configuration deletes to storage
+*/
+function removePageFromStorage(pageName, callback) {
+  delete pages[pageName]; 
+  chrome.storage.sync.set({
+    trustedPages: pages // TODO: set only new page, not all of them everytime
+  }, callback);
+}
+
 var onColorInputChange = function (e) {
   savePageToStroge(e.target.name, e.target.value);
 };
@@ -26,14 +36,27 @@ added.
 function addItemToHtmlList(pageName, color) {
   var item = document.createElement('li');
   item.appendChild(document.createTextNode(pageName));
+  
   var colorSelector = document.createElement('input');
   colorSelector.type = 'color';
   colorSelector.value = color;
   colorSelector.name = pageName; // will be used on event handling
   colorSelector.addEventListener('input', onColorInputChange);
   item.appendChild(colorSelector);
+
+  var deleteBtn = document.createElement('button');
+  deleteBtn.addEventListener('click',onDeleteButtonClick);
+  deleteBtn.name = pageName; // used on click event
+  deleteBtn.innerHTML = 'Delete';
+  item.appendChild(deleteBtn);
   list.appendChild(item);
 }
+
+var onDeleteButtonClick = function(e) {
+  removePageFromStorage(e.target.name, function() {
+    list.removeChild(e.target.parentElement); // remove html element
+  });
+};
 
 /*
 This is used to add new trusted webpage/hostname
