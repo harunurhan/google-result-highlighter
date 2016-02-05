@@ -1,7 +1,7 @@
 {
-  "default_title": "Google Result Highlighter",
+  "name": "Google Result Highlighter",
   "description": "Highlight google search results from trusted websites.",
-  "version": "0.3",
+  "version": "0.4",
   "permissions": [
     "*://www.google.co.uk/*",
     "*://www.google.com.tr/*",
@@ -35,7 +35,7 @@
       "run_at": "document_end"
     }
   ],
-  "default_icon": { 
+  "icons": { 
 		"16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png" 
