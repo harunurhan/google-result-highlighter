@@ -1,7 +1,7 @@
 {
   "name": "Google Result Highlighter",
   "description": "Highlight google search results from trusted websites.",
-  "version": "0.4",
+  "version": "0.5",
   "permissions": [
     "*://www.google.co.uk/*",
     "*://www.google.com.tr/*",
@@ -14,7 +14,6 @@
     "*://www.google.fr/*",
     "*://www.google.de/*",
     "*://www.google.es/*",
-     // TODO: add all countries
     "storage"
   ],
   "content_scripts": [
@@ -30,7 +29,6 @@
                   "*://www.google.fr/*",
                   "*://www.google.de/*",
                   "*://www.google.es/*"],
-                  // TODO: add all countries
       "js": ["highlight.js"],
       "run_at": "document_end"
     }
