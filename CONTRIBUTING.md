@@ -1,8 +1,8 @@
 ## How to contribute
 
-Just create a PR directly to master for now. There are no tests yet, so please be sure that it works :).
+Just create a PR directly to master for now. There are no tests yet, so please be sure that it works.
 
-Also please, before contributing have look at the [Airbnb JS Style guide](https://github.com/airbnb/javascript) for non-ES6 stuff only, please code hasn't ported to ES6 yet.
+Also please, before contributing have look at the [Airbnb JS Style guide](https://github.com/airbnb/javascript) for non-ES6 stuff only, code hasn't ported to ES6 yet.
 
 ## What the project needs
 
