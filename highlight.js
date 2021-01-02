@@ -1,21 +1,26 @@
-var trustedPages; // used as a hashmap where key is web page, value is bg color
+const RESULT_CONTAINER_SELECTOR = '.g';
+const RESULT_LINK_IN_CONTAINER_SELECTOR = 'a';
+const RESULT_TITLE_IN_CONTAINER_LINK = 'h3';
 
-chrome.storage.sync.get({
-  	trustedPages: {}
-  }, function(storage) {
-  	trustedPages = storage.trustedPages;
-});
 
-var highlightTrustedSources = function() {
-	var results = document.querySelectorAll('h3.r > a');
-	for (var i = 0; i < results.length; i++) {
-		var link = results[i];
-		if (trustedPages.hasOwnProperty(link.hostname)) { // ~ O(1) complexity!
-			link.style.background = trustedPages[link.hostname]; // set defined color as background
+function highlightTrustedResults(trustedHostToHighlightColor) {
+	const resultContainers = document.querySelectorAll(RESULT_CONTAINER_SELECTOR);
+	for (const container of resultContainers) {
+		const link = container.querySelector(RESULT_LINK_IN_CONTAINER_SELECTOR);
+		if (trustedHostToHighlightColor.hasOwnProperty(link.hostname)) {
+			const highlightColor = trustedHostToHighlightColor[link.hostname];
+			const resultTitle = container.querySelector(RESULT_TITLE_IN_CONTAINER_LINK);
+			resultTitle.style.backgroundColor = highlightColor;
 		}
 	}
+}
+
+function onPageLoad() {
+	chrome.storage.sync.get({
+		trustedPages: {}
+	}, ({ trustedPages }) => {
+		highlightTrustedResults(trustedPages);
+	});
 };
 
-window.addEventListener('load', function() {
-	highlightTrustedSources();
-});
+window.addEventListener('load', onPageLoad);
